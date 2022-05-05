@@ -20,7 +20,6 @@ public class BrowserTest {
     void teardown() {
         driver.quit();
     }
-
     @Tag("google")
     @Test
     void testGoogleAvailable() throws InterruptedException {
@@ -38,7 +37,7 @@ public class BrowserTest {
 
         //Thread.sleep(5000);
         //element.clear();
-       // assertEquals( "blaBla", textElement.getText());
+        // assertEquals( "blaBla", textElement.getText());
         Thread.sleep(5000);
         WebElement searchElement = driver.findElement(By.className("gNO89b"));
         searchElement.click();
