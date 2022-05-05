@@ -20,7 +20,6 @@ public class BrowserTest {
     void teardown() {
         driver.quit();
     }
-
     @Tag("google")
     @Test
     void testGoogleAvailable() throws InterruptedException {
