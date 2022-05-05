@@ -1,4 +1,4 @@
-package Gevorg;
+package hripsimetsatryan.Gevorg;
 
 public class Shopping {
     public static void main(String[] args) {
