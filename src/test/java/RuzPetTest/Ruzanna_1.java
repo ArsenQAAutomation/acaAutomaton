@@ -15,7 +15,6 @@ public class Ruzanna_1 {
         driver.get("http://automationpractice.com/");
        // String tittel=driver.getTitle();
         String textElement = driver.findElement(By.xpath("/html/head/title")).getAttribute("text");
-
            assertEquals( "My Store", textElement);
       //  driver.quit();
     }
