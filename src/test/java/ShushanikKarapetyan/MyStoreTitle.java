@@ -1,4 +1,3 @@
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Tag;
@@ -13,14 +12,12 @@ import org.openqa.selenium.edge.EdgeDriver;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BrowserTest {
+
+public class MyStoreTitle {
+
     WebDriver driver;
 
-    @AfterEach
-    void teardown() {
-        driver.quit();
-    }
-    @Tag("google")
+    @Tag("my store")
     @Test
     void testGoogleAvailable() throws InterruptedException {
         assertFalse(Config.FAIL_TESTS);
@@ -28,26 +25,14 @@ public class BrowserTest {
         driver = WebDriverManager.getInstance(ChromeDriver.class).create();
 
         // Exercise
-        driver.get("https://google.com");
+        driver.get("http://automationpractice.com");
         String title = driver.getTitle();
-        WebElement element = driver.findElement(By.className("gLFyf"));
+        WebElement element = driver.findElement(By.className("img-responsive"));
         element.click();
-        element.sendKeys("blabla");
 
-
-        //Thread.sleep(5000);
-        //element.clear();
-        // assertEquals( "blaBla", textElement.getText());
-        Thread.sleep(5000);
-        WebElement searchElement = driver.findElement(By.className("gNO89b"));
-        searchElement.click();
-        Thread.sleep(1000);
-        WebElement textElement = driver.findElement(By.className("gLFyf"));
-        assertEquals( "blaBla", textElement.getText());
-
-        // Verify
-        assertTrue(title.contains("Google"));
-        //assertEquals(driver.getClass(), ChromeDriver.class, "fail on browsers other than Chrome");
+        assertTrue(title.contains("My Store"));
     }
 
+
 }
+
