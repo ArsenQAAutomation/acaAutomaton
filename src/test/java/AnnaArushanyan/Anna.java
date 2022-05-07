@@ -24,6 +24,7 @@ public class Anna {
             assertEquals( "My Store", element.getAttribute("text"));
 
         } finally {
-            driver.quit();}
+            driver.quit();
+        }
     }
 }
