@@ -1,3 +1,4 @@
+package ShushanikKarapetyan;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Tag;
@@ -15,23 +16,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MyStoreTitle {
 
-    WebDriver driver;
+        WebDriver driver;
 
-    @Tag("my store")
-    @Test
-    void testGoogleAvailable() throws InterruptedException {
-        assertFalse(Config.FAIL_TESTS);
-        // Driver management and WebDriver instantiation
-        driver = WebDriverManager.getInstance(ChromeDriver.class).create();
+       @Test
+        void testGoogleAvailable () throws InterruptedException {
+            // Driver management and WebDriver instantiation
+            driver = WebDriverManager.getInstance(ChromeDriver.class).create();
 
-        // Exercise
-        driver.get("http://automationpractice.com");
-        String title = driver.getTitle();
-        WebElement element = driver.findElement(By.className("img-responsive"));
-        element.click();
+            // Exercise
+            driver.get("http://automationpractice.com");
+            String title = driver.getTitle();
+            WebElement element = driver.findElement(By.className("img-responsive"));
+            element.click();
 
-        assertTrue(title.contains("My Store"));
-    }
+            assertTrue(title.contains("My Store"));
+        }
+
 
 
 }
