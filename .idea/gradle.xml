@@ -5,7 +5,11 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="delegatedBuild" value="true" />
+<<<<<<< HEAD
         <option name="testRunner" value="GRADLE" />
+=======
+        <option name="testRunner" value="PLATFORM" />
+>>>>>>> 3d16e227fdf07a27e17df9ed146328d314bacff0
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$USER_HOME$/Downloads/gradle-7.4.1-bin/gradle-7.4.1" />
