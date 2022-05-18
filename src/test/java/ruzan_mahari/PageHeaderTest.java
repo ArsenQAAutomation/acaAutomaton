@@ -36,21 +36,24 @@ public class PageHeaderTest {
 
 
         // Exercise
-        driver.get("http://automationpractice.com/index.php");//"https://google.com");
+        driver.get("http://automationpractice.com/index.php");
         String title = driver.getTitle();
         System.out.println("This is the title of the page:  " + title);
+        ////other way to get title
 
         WebElement hihi = driver.findElement(By.xpath("/html/head/title"));
 
-        title = hihi.getAttribute("text");// hihi.getText();
+        title = hihi.getAttribute("text");
         System.out.println("This is the title of the page:  " + title);
+        ///////
+        //find the price of discounted dress:
         hihi = driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[5]/div/div[2]/div[1]/span[2]"));
 
         String namnam = hihi.getText();
 
         System.out.println("This is the text of element  " + namnam);
 
-      //finding the first photo dress
+      //finding the second photo dress
 
         //   hihi.clear();?
       hihi = driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[1]/div/div[1]/div/a[1]/img"));///////"//*[@id="homefeatured"]/li[1]/div/div[2]/div[2]/a[1])"));
@@ -61,25 +64,22 @@ public class PageHeaderTest {
       action.moveToElement(hihi).perform();
 
         // Locating the element from Sub Menu
-        WebElement AddToCard = driver.findElement(By.xpath ("//*[contains(text(),'Add to cart')]"));
+       // WebElement AddToCard = driver.findElement(By.xpath ("//*[contains(text(),'Add to cart')]"));
 
-        //norm driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[2]/div/div[2]/div[2]/a[1]/span"));//.className("button ajax_add_to_cart_button btn btn-default"));
+        WebElement AddToCard = driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[2]/div/div[2]/div[2]/a[1]/span"));//.className("button ajax_add_to_cart_button btn btn-default"));
 
 
         AddToCard.click();
         driver.manage().timeouts().implicitlyWait( Duration.ofSeconds(20));
 
-      //////  WebElement proceed = driver.findElement(By.xpath ("//*[contains(text(),'Proceed to checkout')]"));//(By.xpath("//*[ text() = ‘Proceed to checkout’ ]"));
-        WebElement proceed = driver.findElement(By.xpath("//span[normalize-space()='Proceed to checkout']"));
-            //    "\t\t\t\t\t\t\tProceed to checkout']"));//on-medium" href="http://automationpractice.com/index.php?controller=order" title="Proceed to checkout" rel="nofollow">
-        proceed.click();
+       WebElement proceed = driver.findElement(By.xpath("//span[normalize-space()='Proceed to checkout']"));
+       proceed.click();
 
 
         //page-down?
         action.sendKeys(Keys.PAGE_DOWN).build().perform();
 
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        //  Second "Proceed to checkout"
+       //  Second "Proceed to checkout"
 
         driver.findElement(By.xpath ("//*[@id=\"center_column\"]/p[2]/a[1]/span")).click();
 
@@ -107,17 +107,6 @@ public class PageHeaderTest {
            else
                 System.out.println("There is no err msg N1");
         }
-
-        //////simon?    action.click();//.build().perform();  ??
-        ////////////
-        /////add to basket all the items with cell.new part
-        List<WebElement>  elements1 = driver.findElements(By.xpath("//span[@class='price-percent-reduction']"));
-        for(int i=0; i< elements1.size(); i++){
-            elements1
-
-        }
-        }
-
 
     }
 }
