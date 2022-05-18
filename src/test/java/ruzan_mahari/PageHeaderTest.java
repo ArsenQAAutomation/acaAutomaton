@@ -113,11 +113,11 @@ public class PageHeaderTest {
         /////add to basket all the items with cell.new part
         List<WebElement>  elements1 = driver.findElements(By.xpath("//span[@class='price-percent-reduction']"));
         for(int i=0; i< elements1.size(); i++){
-            elements1
+
 
         }
         }
 
 
     }
-}
+
