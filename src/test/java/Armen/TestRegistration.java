@@ -22,11 +22,11 @@ public class TestRegistration {
             String volume = e.getText();
             if (volume.contains("%")) {
                 actions.moveToElement(e).perform();
-                driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[5]/div/div[2]/div[2]/a[1]")).click();
-                driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/span/span")).click();
-                driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[7]/div/div[2]/div[2]/a[1]")).click();
-                driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span/i")).click();
-                driver.findElement(By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span/i")).click();
+                driver.findElement(By.xpath("//div/a[@data-id-product=\"5\"]/span")).click();
+                driver.findElement(By.xpath("//div/span[@title=\"Continue shopping\"]/span")).click();
+                driver.findElement(By.xpath("//div/a[@data-id-product=\"7\"]/span")).click();
+                driver.findElement(By.xpath("//div/a[@title=\"Proceed to checkout\"]/span")).click();
+                driver.findElement(By.xpath("//p/a[@title=\"Proceed to checkout\"]/span")).click();
                 driver.findElement(By.xpath("//*[@id=\"email_create\"]")).sendKeys("arm.28@gmail.com");
                 driver.findElement(By.xpath("//*[@id=\"SubmitCreate\"]/span")).click();
                 driver.findElement(By.xpath("//*[@id=\"uniform-id_gender1\"]/span")).click();
