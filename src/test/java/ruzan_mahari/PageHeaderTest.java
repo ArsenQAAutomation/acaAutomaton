@@ -54,35 +54,35 @@ public class PageHeaderTest {
 
         System.out.println("This is the text of element  " + namnam);
 
-      //finding the second photo dress
+        //finding the second photo dress
 
         //   hihi.clear();?
-      hihi = driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[1]/div/div[1]/div/a[1]/img"));///////"//*[@id="homefeatured"]/li[1]/div/div[2]/div[2]/a[1])"));
-      //Creating object of an Actions class
-      Actions action = new Actions(driver);
+        hihi = driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[1]/div/div[1]/div/a[1]/img"));///////"//*[@id="homefeatured"]/li[1]/div/div[2]/div[2]/a[1])"));
+        //Creating object of an Actions class
+        Actions action = new Actions(driver);
 
-      //Performing the mouse hover action on the target element.
-      action.moveToElement(hihi).perform();
+        //Performing the mouse hover action on the target element.
+        action.moveToElement(hihi).perform();
 
         // Locating the element from Sub Menu
-       // WebElement AddToCard = driver.findElement(By.xpath ("//*[contains(text(),'Add to cart')]"));
+        // WebElement AddToCard = driver.findElement(By.xpath ("//*[contains(text(),'Add to cart')]"));
 
         WebElement AddToCard = driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[2]/div/div[2]/div[2]/a[1]/span"));//.className("button ajax_add_to_cart_button btn btn-default"));
 
 
         AddToCard.click();
-        driver.manage().timeouts().implicitlyWait( Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
-       WebElement proceed = driver.findElement(By.xpath("//span[normalize-space()='Proceed to checkout']"));
-       proceed.click();
+        WebElement proceed = driver.findElement(By.xpath("//span[normalize-space()='Proceed to checkout']"));
+        proceed.click();
 
 
         //page-down?
         action.sendKeys(Keys.PAGE_DOWN).build().perform();
 
-       //  Second "Proceed to checkout"
+        //  Second "Proceed to checkout"
 
-        driver.findElement(By.xpath ("//*[@id=\"center_column\"]/p[2]/a[1]/span")).click();
+        driver.findElement(By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span")).click();
 
         //wrong login
         driver.findElement(By.cssSelector("#email")).sendKeys("bubu");
@@ -90,24 +90,26 @@ public class PageHeaderTest {
         driver.findElement(By.cssSelector("#passwd")).sendKeys("bubu");
         driver.findElement(By.cssSelector("#SubmitLogin")).click();
 
-        WebElement errMsg = driver.findElement(By.xpath ("//*[contains(text(),'There is 1 error')]"));
+        WebElement errMsg = driver.findElement(By.xpath("//*[contains(text(),'There is 1 error')]"));
 
-     ///
+        ///
         Boolean boo = errMsg.isDisplayed();
-        if(boo) {
+        if (boo) {
             List<WebElement> elements = driver.findElements(By.xpath("//*[@id=\"center_column\"]/div[1]/ol/li"));
             if (elements.size() > 0) {      //assert?
 
-                    assertEquals("Invalid email address.",elements.get(0).getText()," Err msg N1 is wrong");
+                assertEquals("Invalid email address.", elements.get(0).getText(), " Err msg N1 is wrong");
 
-                    System.out.println("errMsg is proper: Invalid email address.");
-             }
-           //     else
-           //         System.out.println(" Err msg N1 is wrong");
+                System.out.println("errMsg is proper: Invalid email address.");
+            }
+            //     else
+            //         System.out.println(" Err msg N1 is wrong");
 
-           else
+            else
                 System.out.println("There is no err msg N1");
         }
 
+
     }
-}
+    }
+
