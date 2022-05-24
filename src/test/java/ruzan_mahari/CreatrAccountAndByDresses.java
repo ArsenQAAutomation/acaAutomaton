@@ -136,6 +136,7 @@ public class CreatrAccountAndByDresses {
                 }
             }
    Thread.sleep(3000);
+            //kuku
       //  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
      //       wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("id_gender2"))));
             driver.findElement(By.id("id_gender2")).click();
