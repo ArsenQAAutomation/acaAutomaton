@@ -24,7 +24,6 @@ public class ErrorMessageT {
         driver.get("http://automationpractice.com/");
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-
         Actions act = new Actions(driver);
         WebElement firstItm = driver.findElement(By.className("product-container"));
         act.moveToElement(firstItm).build().perform();
@@ -41,13 +40,3 @@ public class ErrorMessageT {
         driver.quit();
     }
 }
-
-
-
-//WebElement successfulText = driver.findElement(By.linkText("Product successfully added to your shopping cart"));
-//        successfulText = driver.findElement(By.linkText("[Product successfully added to your shopping cart]").click());
-//        Thread.sleep(6000);
-////        Assert.assertEquals(successfulText.getText(),"Product successfully added to your shopping cart\n","Product is not added");
-////        WebElement ProceedToCheckOut = driver.findElement(xpath("//a[contains(@title,'Proceed to checkout')]")).click();
-////                WebElement ProceedToCheckOut2 = driver.findElement(By.linkText("title=\"Proceed to checkout\""));
-////        ProceedToCheckOut2.click();
