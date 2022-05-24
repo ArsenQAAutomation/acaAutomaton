@@ -13,15 +13,10 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import static org.bouncycastle.asn1.isismtt.x509.DeclarationOfMajority.dateOfBirth;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -39,7 +34,7 @@ public class CreatrAccountAndByDresses {
     @Test
     void createAccountAndBuyDresses() throws InterruptedException {
 
-      // Driver management and WebDriver instantiation
+        // Driver
         driver = WebDriverManager.getInstance(ChromeDriver.class).create();
 
         driver.get("http://automationpractice.com/index.php");
@@ -47,50 +42,32 @@ public class CreatrAccountAndByDresses {
 
         Actions action = new Actions(driver);
 
-     /*   // Locating the element from Sub Menu
-        WebElement AddToCard = driver.findElement(By.xpath("//*[contains(text(),'Add to cart')]"));
 
-        //norm driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[2]/div/div[2]/div[2]/a[1]/span"));//.className("button ajax_add_to_cart_button btn btn-default"));
-
-
-        AddToCard.click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
-        WebElement proceed = driver.findElement(By.xpath("//span[normalize-space()='Proceed to checkout']"));
-        proceed.click();
-
-
-        //page-down?
-        action.sendKeys(Keys.PAGE_DOWN).build().perform();
-
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        //  Second "Proceed to checkout"
-
-        driver.findElement(By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span")).click();
-
-      *simon end*/
-        //Mazimize current window
+        //Maximize current window
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-      //  action.sendKeys(Keys.PAGE_DOWN);//build().perform();
+    //    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); //waits
+
 
         /////add to basket all the items with cell.new part
-    ///    List<WebElement> elements1 = driver.findElements(By.xpath("//span[@class='old-price product-price']//ancestor::div[@class='content_price']"));//replace-2x img-responsive']"));
         List<WebElement> elements1 = driver.findElements(By.cssSelector("ul[id='homefeatured'] div[class='right-block']  span[class='price-percent-reduction']"));
-                //driver.findElements(By.xpath("//span[@class='price-percent-reduction']//ancestor::div[@class='product-container']"));
-        WebElement bubu;
-        WebElement bu;
-        List<WebElement> AddToCardEls ;//=  driver.findElements(By.xpath("//*[contains(text(),'Add to cart')]"));//ancestor::div[@class='price-percent-reduction']"));
+        WebElement bubu, bu;
+
+        List<WebElement> AddToCardEls;//=  driver.findElements(By.xpath("//*[contains(text(),'Add to cart')]"));//ancestor::div[@class='price-percent-reduction']"));
         int saledDressNumb = elements1.size();
         for (int i = 0; i < saledDressNumb; i++) {
 
+            ///should wait until page will be visible
             elements1 = driver.findElements(By.cssSelector("ul[id='homefeatured'] div[class='right-block']  span[class='price-percent-reduction']"));
             //hover
             bubu = elements1.get(i);
 
 
+            Thread.sleep(3000);/////?chto vmesto?
+
             // hover on element to see the "Add to cart"
             action.moveToElement(bubu).perform();
+
+
             AddToCardEls = driver.findElements(By.xpath("//*[contains(text(),'Add to cart')]"));
             for (int j = 0; j < AddToCardEls.size(); j++) {
                 bu = AddToCardEls.get(j);
@@ -98,83 +75,99 @@ public class CreatrAccountAndByDresses {
 
                 if (bu.isDisplayed()) {
                     bu.click();
-                    WebElement proceed = driver.findElement(By.xpath("//span[normalize-space()='Proceed to checkout']"));
+
+                    WebElement proceed = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(By.
+                            xpath("//span[normalize-space()='Proceed to checkout']")));
                     proceed.click();
                     //Continue shopping
-                    driver.findElement(By.xpath("//*[@id=\"center_column\"]/p[2]/a[2]")).click();//("//a[@class='button-exclusive btn btn-default']")).click();
-                    //page-down?
+                    WebElement continueShop = new WebDriverWait(driver, Duration.ofSeconds(5))
+                            .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='center_column']/p[2]/a[2]")));
+                    continueShop.click();
+                    //page-down
                     action.sendKeys(Keys.PAGE_DOWN).build().perform();
                     break;
-
-
                 }
+
             }
         }
-            driver.findElement(By.xpath("/html/body/div/div[1]/header/div[3]/div/div/div[3]/div/a")).click();//("//a[@class='button-exclusive btn btn-default']")).click();
-            driver.findElement(By.xpath("//*[contains(text(),'Check out')]"));
+            //go to Cart on the top -right of page
+                  action.sendKeys(Keys.PAGE_UP).build().perform();
+                  WebElement checkOut = new WebDriverWait(driver, Duration.ofSeconds(10))
+                            .until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div[1]/header/div[3]/div/div/div[3]/div/a")));
+                    checkOut.click();
+                    //          driver.findElement(By.xpath("/html/body/div/div[1]/header/div[3]/div/div/div[3]/div/a")).click();
+                    ////simon         driver.findElement(By.xpath("//*[contains(text(),'Check out')]"));
 
-            //page-down?
-            //    action.sendKeys(Keys.PAGE_DOWN).build().perform();
+
 
             //  Second "Proceed to checkout"
 
-            driver.findElement(By.xpath("//*[@id='center_column']/p[2]/a[1]/span")).click();
-            //email
-         //    if(i==0) {
-
-                //create account
-               String myMail = "ruz13@hotmail.com";
-                driver.findElement(By.cssSelector("#email_create")).sendKeys(myMail);
-                WebElement account = driver.findElement(By.id("SubmitCreate"));
-                Thread.sleep(3000);
-                account.click();
-                //!!!test whether this email is already used
-               WebElement myErr = driver.findElement(By.id("create_account_error"));
-              do{
-
-                 myMail = "1" + myMail;
-                 driver.findElement(By.cssSelector("#email_create")).sendKeys(myMail);
-                 account.click();
-              }while( myErr.isDisplayed());
+        checkOut = new WebDriverWait(driver, Duration.ofSeconds(20))
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='center_column']/p[2]/a[1]/span")));
+        checkOut.click();
+        //   driver.findElement(By.xpath("//*[@id='center_column']/p[2]/a[1]/span")).click();
 
 
+            //create account
+            String myMail = "rrr@hotmail.com";
+            WebElement myMailPlace = driver.findElement(By.cssSelector("#email_create"));
+            myMailPlace.sendKeys(myMail);
+            WebElement account = driver.findElement(By.id("SubmitCreate"));
 
-               // Thread.sleep(3000);
-               // account.click();
-                 Thread.sleep(1500);
-                driver.findElement(By.id("id_gender2")).click();
-                driver.findElement(By.name("customer_firstname")).sendKeys("Ru");
-                driver.findElement(By.name("customer_lastname")).sendKeys("Ma");
-                 driver.findElement(By.name("passwd")).sendKeys("Bibik");
-                 Select se = new Select(driver.findElement(By.id("days")));
-                 se.selectByValue("3");
-                 se = new Select(driver.findElement(By.id("months")));
-                 se.selectByValue("11");
+            account.click();
 
-                 se = new Select(driver.findElement(By.id("years")));
-                 se.selectByValue("2007");
-                 driver.findElement(By.id("optin")).click();
-                 driver.findElement(By.id("address1")).sendKeys("huhuhuhu");
-                 driver.findElement(By.id("postcode")).sendKeys("00014");
-
-                 se = new Select(driver.findElement(By.id("id_state")));
-                 se.selectByValue("11");
+            //test whether this email is already used
+            WebElement isErrPresent;
+            while (true) {
+                try {
+                    isErrPresent = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(By.id("create_account_error")));
 
 
-                 driver.findElement(By.id("city")).sendKeys("Yerevan");
-                 driver.findElement(By.id("phone_mobile")).sendKeys("32132132111");
-                 driver.findElement(By.id("submitAccount")).click();
+                    //     isErrPresent = driver.findElement(By.id("create_account_error"));
+                    myMail = "1" + myMail;
+                    myMailPlace.clear();
+                    myMailPlace.sendKeys(myMail);
+                    account.click();
 
 
+                } catch (Exception e) {
 
-          //  }
-          //  else{
-          //      //log in with credentials
+                    break;
+                }
+            }
+   Thread.sleep(3000);
+      //  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+     //       wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("id_gender2"))));
+            driver.findElement(By.id("id_gender2")).click();
+      // gender.click();
+        driver.findElement(By.name("customer_firstname")).sendKeys("Ru");
+        driver.findElement(By.name("customer_lastname")).sendKeys("Ma");
+        driver.findElement(By.name("passwd")).sendKeys("Bibik");
+        Select se = new Select(driver.findElement(By.id("days")));
+        se.selectByValue("3");
+        se = new Select(driver.findElement(By.id("months")));
+        se.selectByValue("11");
 
-        }
+        se = new Select(driver.findElement(By.id("years")));
+        se.selectByValue("2007");
+        driver.findElement(By.id("optin")).click();
+        driver.findElement(By.id("address1")).sendKeys("huhuhuhu");
+        driver.findElement(By.id("postcode")).sendKeys("00014");
+
+        se = new Select(driver.findElement(By.id("id_state")));
+        se.selectByValue("11");
+
+
+        driver.findElement(By.id("city")).sendKeys("Yerevan");
+        driver.findElement(By.id("phone_mobile")).sendKeys("32132132111");
+        driver.findElement(By.id("submitAccount")).click();
+
+
+        //  }
+        //  else{
+        //      //log in with credentials
+
 
     }
 
-//stale element reference: element is not attached to the page document
-//testng
-//number of saled dresses
+    }
