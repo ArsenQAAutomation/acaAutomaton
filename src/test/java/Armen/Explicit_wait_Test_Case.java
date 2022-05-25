@@ -22,7 +22,7 @@ public class Explicit_wait_Test_Case {
        WebElement el = driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[1]"));
        actions.moveToElement(el).perform();
        By More=By.xpath("//*[@id=\"homefeatured\"]/li[1]/div/div[2]/div[2]/a[2]/span");
-       wait.until(ExpectedConditions.presenceOfElementLocated (More)).click();
+       wait.until(ExpectedConditions.elementToBeClickable (More)).click();
        By Quantity=By.xpath("//*[@id=\"quantity_wanted_p\"]/a[2]");
        wait.until(ExpectedConditions.presenceOfElementLocated(Quantity)).click();
        By Size=By.id("group_1");
@@ -33,16 +33,18 @@ public class Explicit_wait_Test_Case {
        wait.until(ExpectedConditions.presenceOfElementLocated(Color)).click();
        By Add=By.xpath("//*[@id=\"add_to_cart\"]/button/span");
        wait.until(ExpectedConditions.presenceOfElementLocated(Add)).click();
-        By checkout =By.xpath("//div/a[@title=\"Proceed to checkout\"]/span");
-        wait.until(ExpectedConditions.presenceOfElementLocated(checkout)).click();
-        By checkout1 =By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span");
-        wait.until(ExpectedConditions.presenceOfElementLocated(checkout1)).click();
-        By Email =By.xpath("//*[@id=\"email\"]");
-        wait.until(ExpectedConditions.presenceOfElementLocated(checkout)).sendKeys("lj.28@gmail.com");
-        By pas =By.xpath("//*[@id=\"passwd\"]");
-        wait.until(ExpectedConditions.presenceOfElementLocated(checkout)).sendKeys("Arm2003348");
-        By Sing_in =By.xpath("//*[@id=\"SubmitLogin\"]/span");
-        wait.until(ExpectedConditions.presenceOfElementLocated(checkout)).click();
+       By checkout =By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span");
+       wait.until(ExpectedConditions.elementToBeClickable(checkout)).click();
+       By checkout1 =By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span");
+       wait.until(ExpectedConditions.presenceOfElementLocated(checkout1)).click();
+       By Email =By.xpath("//*[@id=\"email\"]");
+       wait.until(ExpectedConditions.presenceOfElementLocated(Email)).sendKeys("lj.28@gmail.com");
+       By pas =By.xpath("//*[@id=\"passwd\"]");
+       wait.until(ExpectedConditions.presenceOfElementLocated(pas)).sendKeys("Arm2003348");
+       By Sing_in =By.xpath("//*[@id=\"SubmitLogin\"]/span");
+       wait.until(ExpectedConditions.presenceOfElementLocated(Sing_in)).click();
+       By checkout2 =By.xpath("//*[@id=\"center_column\"]/form/p/button/span");
+       wait.until(ExpectedConditions.presenceOfElementLocated(checkout2)).click();
 
 
 
