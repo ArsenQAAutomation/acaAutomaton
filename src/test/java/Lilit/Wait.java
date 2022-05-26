@@ -14,15 +14,16 @@ import java.time.Duration;
 
 import static java.time.Duration.ofSeconds;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.openqa.selenium.By.className;
 //        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 
 public class Wait {
     @Test
-    public  void mainTest () {
+    public void mainTest() {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, ofSeconds(100));
         driver.get("http://automationpractice.com/index.php");
         driver.manage().window().maximize();
         WebElement element = driver.findElement(By.xpath("//img[@class='replace-2x img-responsive']"));
@@ -31,57 +32,28 @@ public class Wait {
 
         // Wait till the element becomes visible
         WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='button ajax_add_to_cart_button btn btn-default']")));
-        if (element.isDisplayed()) {
-            System.out.println("Element is visible");
-        } else {
-            System.out.println("Element is not visible");
-        }
-        driver.findElement(By.xpath("//*[@class='button ajax_add_to_cart_button btn btn-default']")).click();// add to card
-        WebElement webElement1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@title,'Proceed to checkout')]")));
-        if (element.isDisplayed()) {
-            System.out.println("Element1 is clickable");
-        } else {
-            System.out.println("Element1 is not clickable");
-            driver.findElement(By.xpath("//a[contains(@title,'Proceed to checkout')]")).click();//proceed to check out
-        }
-        WebElement webElement2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='btn btn-default button button-medium']")));
-        driver.findElement(By.xpath("//*[@class='btn btn-default button button-medium']")).click(); // proceed to check out
-        if (element.isDisplayed()){
-            System.out.println("Element2 is clickable");
-        } else {
-            System.out.println("Element2 is not clickable");
-        }
-        WebElement webElement3 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("//*[contains(@class,'is_required validate account')]")));
+        webElement.click();// add to card
 
-        WebElement EmailButton = driver.findElement(By.className("//*[contains(@class,'is_required validate account')]"));
-               EmailButton.sendKeys("tumanyanlili3@gmail.com");
-        if (element.isDisplayed()) {
-            System.out.println("Email field is visible");
-        } else {
-            System.out.println("Email field is not visible");
-        }
+        WebElement webElement1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@title,'Proceed to checkout')]")));
+        webElement1.click();//proceed to check out
+
+        WebElement webElement2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='button btn btn-default standard-checkout button-medium']")));
+        webElement2.click(); // proceed to check out
+
+
+        WebElement EmailButton = driver.findElement(By.id("email"));
+        EmailButton.sendKeys("tumanyanlili3@gmail.com");
+
         WebElement webElement4 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("passwd")));
-        driver.findElement(By.id("passwd")).sendKeys("asl123");
-        if (element.isDisplayed()) {
-            System.out.println("password field is visible");
-        } else {
-            System.out.println("password field is not visible");
-        }
-        WebElement webElement5 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[contains(@class,'icon-lock left')]")));
-        WebElement ClickButton = driver.findElement(By.xpath("//i[contains(@class,'icon-lock left')]"));
-              ClickButton.click();
-        if (element.isDisplayed()) {
-            System.out.println("Sign in button is clickable");
-        } else {
-            System.out.println("Sign in button is not clickable");
-        }
-            String actualResult = driver.findElement(By.xpath("//*[text() = 'Authentication failed.']")).getText();
-             String expectedResult = "Authentication failed.";
-             assertEquals(actualResult, expectedResult);
-            driver.close();
+        webElement4.sendKeys("asl123");
+
+
+        WebElement webElement5 = wait.until(ExpectedConditions.elementToBeClickable(By.id("SubmitLogin")));
+        webElement5.click();
+
+        String actualResult = driver.findElement(By.xpath("//*[text() = 'Authentication failed.']")).getText();
+        String expectedResult = "Authentication failed.";
+        assertEquals(actualResult, expectedResult);
+        driver.close();
     }
 }
-
-
-
-
