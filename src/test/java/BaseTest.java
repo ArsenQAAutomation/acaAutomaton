@@ -1,4 +1,4 @@
-import Pages.homePage.HomePageActions;
+import Pages.homePage.ProductSelectionPage;
 import Pages.productDetails.ProductDetails;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,7 +7,7 @@ import utils.DriverFactory;
 
 public class BaseTest extends DriverFactory {
     //region <Page Class Instance Declaration>
-    public HomePageActions homePageActions;
+    public ProductSelectionPage homePageActions;
     public ProductDetails productDetails;
     //endregion
 
@@ -29,7 +29,7 @@ public class BaseTest extends DriverFactory {
             super.initDriver(ENVIRONMENT_URL, REMOTE);
         }
         //region <Page Class Instance Initialization >
-        homePageActions = PageFactory.initElements(driver, HomePageActions.class);
+        homePageActions = PageFactory.initElements(driver, ProductSelectionPage.class);
         productDetails = PageFactory.initElements(driver, ProductDetails.class);
         //endregion
     }

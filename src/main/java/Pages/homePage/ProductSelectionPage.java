@@ -5,11 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePageActions extends BasePage {
+public class ProductSelectionPage extends BasePage {
     private final BasePage basePage;
-    private HomePageElements homePageElements = new HomePageElements();
 
-    public HomePageActions(WebDriver driver) {
+    public ProductSelectionPage(WebDriver driver) {
         super(driver);
         basePage = new BasePage(driver);
 
