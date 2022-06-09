@@ -28,6 +28,7 @@ public class BasePage {
 // this method will used for clicking on element which is visible
     public void clickOnelement(WebElement element){
         this.waitElementToBeVisible(element);
+        this.waitElementTobeClickable(element);
         element.click();
     }
 
@@ -35,5 +36,8 @@ public class BasePage {
         this.webDriverWait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    public void waitElementTobeClickable(WebElement element){
+        this.webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
+    }
 
 }

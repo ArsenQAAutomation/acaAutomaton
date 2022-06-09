@@ -23,13 +23,17 @@ public class HomePageActions extends BasePage {
 
 
     public void clickOnLogo(){
+        basePage.waitElementTobeClickable(logo);
         basePage.clickOnelement(logo);
     }
 
     public void clickOnFiorstItem(){
-    basePage.clickOnelement(firstItem);
+        basePage.clickOnelement(firstItem);
     }
 
+    public String getTextFromEsimINch(){
+        return "";
+    };
 
 
 }
