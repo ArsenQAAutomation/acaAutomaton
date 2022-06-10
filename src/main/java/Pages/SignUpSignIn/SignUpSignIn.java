@@ -7,6 +7,8 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class SignUpSignIn extends BasePage {
 
     private final BasePage basePage;
@@ -26,6 +28,10 @@ public class SignUpSignIn extends BasePage {
     @FindBy(xpath = "//*[@id=\"center_column\"]/div[1]/p")
     @CacheLookup
     WebElement errorText;
+
+    @FindBy(tagName = "a")
+    @CacheLookup
+    public List<WebElement> links;
 
 
     @FindBy(xpath = "//h1[@class='page-heading']")

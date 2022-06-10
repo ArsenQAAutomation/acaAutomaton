@@ -1,9 +1,17 @@
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebElement;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class SignInTest extends BaseTest {
 
+    SoftAssertions softAssertions =new SoftAssertions();
 
     @Test
     public void titleTest() {
@@ -62,4 +70,33 @@ public class SignInTest extends BaseTest {
         }
     }
 
+
+    @Test
+    public void signInPageLinksTest() throws IOException {
+        signUpSignIn.clickButtonBasePageSignIn();
+        for (WebElement link:signUpSignIn.links){
+            String url = link.getAttribute("href");
+            if (url.equals(null)|| url.isEmpty()){
+                softAssertions.fail("Its a empty link -->" + link.getText());
+            }
+            else{
+                try {
+                    URL Url = new URL(url);
+                    HttpURLConnection connection = (HttpURLConnection) Url.openConnection();
+                    connection.connect();
+                    int cod = connection.getResponseCode();
+                    if (cod>=400){
+                        softAssertions.fail(url + "  <-- Not Valid URL");
+                    }
+                    else {
+                        Assertions.assertTrue(true,url + "  <-- Valid URL");
+                    }
+                }
+                catch (Exception e){
+                    softAssertions.fail("We have Exception on link -->" + url + "  Exception is " + e);
+
+                }
+            }
+        }
+    }
 }
