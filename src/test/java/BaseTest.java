@@ -1,5 +1,7 @@
+import Pages.SignUpSignIn.SignUpSignIn;
 import Pages.homePage.ProductSelectionPage;
 import Pages.productDetails.ProductDetails;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.support.PageFactory;
@@ -10,7 +12,7 @@ public class BaseTest extends DriverFactory {
     public ProductSelectionPage homePageActions;
     public ProductDetails productDetails;
     //endregion
-
+    public SignUpSignIn signUpSignIn;
 
     public static final String ENVIRONMENT_URL = "http://automationpractice.com/index.php";
     private final boolean REMOTE = false;
@@ -31,6 +33,8 @@ public class BaseTest extends DriverFactory {
         //region <Page Class Instance Initialization >
         homePageActions = PageFactory.initElements(driver, ProductSelectionPage.class);
         productDetails = PageFactory.initElements(driver, ProductDetails.class);
+        signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
+
         //endregion
     }
 
@@ -41,5 +45,11 @@ public class BaseTest extends DriverFactory {
         } catch (Exception exception) {
 
         }
+    }
+    public String generateRandomEmail(){
+        String randomEmail;
+        String generatedString = RandomStringUtils.randomAlphanumeric(10);
+        randomEmail = generatedString + "@gmail.com";
+        return randomEmail;
     }
 }

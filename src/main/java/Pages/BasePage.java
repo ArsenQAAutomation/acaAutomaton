@@ -40,4 +40,5 @@ public class BasePage {
         this.webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+
 }
