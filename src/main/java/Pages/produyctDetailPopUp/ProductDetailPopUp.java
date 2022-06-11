@@ -1,4 +1,4 @@
 package Pages.produyctDetailPopUp;
 
-public class ProductyDetailPopUp {
+public class ProductDetailPopUp {
 }
