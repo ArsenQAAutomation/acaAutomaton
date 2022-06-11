@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -16,9 +18,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.List;
 
-
-public class Register {
-
+public class Register_WithExplicitWait {
     public String generateRandomEmail(){
         String randomEmail;
         String generatedString = RandomStringUtils.randomAlphanumeric(10);
@@ -36,34 +36,27 @@ public class Register {
     }
 
     @Test
-    public void test1() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-
-        List<WebElement> elements = driver.findElements(By.xpath("//*[@class=\"content_price\"]"));
+    public void test1()  {
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(60));
         Actions action = new Actions(driver);
-        for (WebElement element : elements) {
-            String text = element.getText();
-            if (text.contains("%")) {
-                action.moveToElement(element).perform();
-                List<WebElement> all = driver.findElements(By.xpath("//span[contains(text(),'Add to cart')]"));
-                for (WebElement one : all) {
-                    if (one.isDisplayed()) {
-                        one.click();
-                        WebElement close =driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[1]/span"));
-                        close.click();
-                    }
-                }
-            }
-        }
-        WebElement cart = driver.findElement(By.xpath("//*[@id=\"header\"]/div[3]/div/div/div[3]/div/a"));
-        cart.click();
-        WebElement toCheckout =driver.findElement(By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span"));
-        toCheckout.click();
+        WebElement firstElement = driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[1]/div"));
+        action.moveToElement(firstElement).perform();
+        driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[1]/div/div[2]/div[2]/a[1]")).click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"btn btn-default button button-medium\"]")));
+        WebElement but1= driver.findElement(By.xpath("//*[@class=\"btn btn-default button button-medium\"]"));
+        but1.click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='button btn btn-default standard-checkout button-medium']")));
+        WebElement but2= driver.findElement(By.xpath("//*[@class='button btn btn-default standard-checkout button-medium']"));
+        but2.click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email_create")));
         WebElement email = driver.findElement(By.name("email_create"));
         email.sendKeys(generateRandomEmail());
         WebElement submitCreate = driver.findElement(By.id("SubmitCreate"));
         submitCreate.click();
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("id_gender1")));
         WebElement gender = driver.findElement(By.id("id_gender1"));
         WebElement firstName = driver.findElement(By.name("customer_firstname"));
         WebElement lastName = driver.findElement(By.name("customer_lastname"));
