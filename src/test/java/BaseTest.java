@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 import Pages.Newsletter.NewsLetterPage;
+=======
+import Pages.ContractUs.ContactUs;
+>>>>>>> ef0a22bdc4e9c2ed11f251dc875cab4c4733eaa9
 import Pages.SignUpSignIn.SignUpSignIn;
 import Pages.homePage.ProductSelectionPage;
 import Pages.productDetails.ProductDetails;
+import Pages.yourPersonalInformation.YourPersonalInfgormation;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,12 +19,16 @@ public class BaseTest extends DriverFactory {
     public ProductDetails productDetails;
     public SignUpSignIn signUpSignIn;
     public NewsLetterPage newsLetterPage;
+    public Pages.ContractUs.ContactUs ContactUs;
+    public YourPersonalInfgormation yourPersonalInformation;
     //endregion
+
+
+
 
 
     public static final String ENVIRONMENT_URL = "http://automationpractice.com/index.php";
     private final boolean REMOTE = false;
-
 
     public BaseTest() {
     }
@@ -38,6 +47,8 @@ public class BaseTest extends DriverFactory {
         productDetails = PageFactory.initElements(driver, ProductDetails.class);
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
         newsLetterPage = PageFactory.initElements(driver, NewsLetterPage.class);
+        ContactUs = PageFactory.initElements(driver, ContactUs.class);
+        yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
         //endregion
     }
 
