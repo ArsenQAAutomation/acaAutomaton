@@ -1,6 +1,7 @@
 import Pages.SignUpSignIn.SignUpSignIn;
 import Pages.homePage.ProductSelectionPage;
 import Pages.productDetails.ProductDetails;
+import Pages.yourPersonalInformation.YourPersonalInfgormation;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,6 +14,7 @@ public class BaseTest extends DriverFactory {
     public ProductDetails productDetails;
     //endregion
     public SignUpSignIn signUpSignIn;
+    public YourPersonalInfgormation yourPersonalInformation;
 
     public static final String ENVIRONMENT_URL = "http://automationpractice.com/index.php";
     private final boolean REMOTE = false;
@@ -34,7 +36,7 @@ public class BaseTest extends DriverFactory {
         homePageActions = PageFactory.initElements(driver, ProductSelectionPage.class);
         productDetails = PageFactory.initElements(driver, ProductDetails.class);
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
-
+        yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
         //endregion
     }
 
