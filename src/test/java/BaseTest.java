@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 import Pages.Newsletter.NewsLetterPage;
-=======
 import Pages.ContractUs.ContactUs;
->>>>>>> ef0a22bdc4e9c2ed11f251dc875cab4c4733eaa9
 import Pages.SignUpSignIn.SignUpSignIn;
 import Pages.homePage.ProductSelectionPage;
 import Pages.productDetails.ProductDetails;
