@@ -37,11 +37,8 @@ public class BaseTest extends DriverFactory {
         homePageActions = PageFactory.initElements(driver, ProductSelectionPage.class);
         productDetails = PageFactory.initElements(driver, ProductDetails.class);
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
-<<<<<<< HEAD
         ContactUs = PageFactory.initElements(driver, ContactUs.class);
-=======
         yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
->>>>>>> da865d81aebc07fe7ee2e3ab9cce899a86efc517
         //endregion
     }
 
