@@ -1,5 +1,7 @@
 package Pages;
 
+import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -40,5 +42,22 @@ public class BasePage {
         this.webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    public void fillTextToElement(WebElement element,String text){
+        waitElementToBeVisible(element);
+        element.clear();
+        element.sendKeys(text);
+    }
+
+    public void scrollToElementJS(WebElement webElement) {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].scrollIntoView(true);", webElement);
+    }
+
+    public String generateRandomEmail(){
+        String randomEmail;
+        String generatedString = RandomStringUtils.randomAlphanumeric(10);
+        randomEmail = generatedString + "@gmail.com";
+        return randomEmail;
+    }
 
 }

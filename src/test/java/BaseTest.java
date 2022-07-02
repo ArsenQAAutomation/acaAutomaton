@@ -1,3 +1,4 @@
+import Pages.Newsletter.NewsLetterPage;
 import Pages.SignUpSignIn.SignUpSignIn;
 import Pages.homePage.ProductSelectionPage;
 import Pages.productDetails.ProductDetails;
@@ -11,8 +12,10 @@ public class BaseTest extends DriverFactory {
     //region <Page Class Instance Declaration>
     public ProductSelectionPage homePageActions;
     public ProductDetails productDetails;
-    //endregion
     public SignUpSignIn signUpSignIn;
+    public NewsLetterPage newsLetterPage;
+    //endregion
+
 
     public static final String ENVIRONMENT_URL = "http://automationpractice.com/index.php";
     private final boolean REMOTE = false;
@@ -34,7 +37,7 @@ public class BaseTest extends DriverFactory {
         homePageActions = PageFactory.initElements(driver, ProductSelectionPage.class);
         productDetails = PageFactory.initElements(driver, ProductDetails.class);
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
-
+        newsLetterPage = PageFactory.initElements(driver, NewsLetterPage.class);
         //endregion
     }
 
