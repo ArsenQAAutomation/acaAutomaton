@@ -7,7 +7,7 @@ import Pages.homePage.ProductSelectionPage;
 //import Pages.productDetails.ProductDetails;
 import Pages.women.WomenPage;
 import Pages.yourAddress.YourAddress;
-import Pages.yourPersonalInformation.YourPersonalInfgormation;
+import Pages.yourPersonalInformation.YourPersonalInformation;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +21,8 @@ public class BaseTest extends DriverFactory {
     //public ProductDetails productDetails;
     public SignUpSignIn signUpSignIn;
     public NewsLetterPage newsLetterPage;
-    public YourPersonalInfgormation yourPersonalInformation;
+    public Pages.ContractUs.ContactUs ContactUs;
+    public YourPersonalInformation yourPersonalInformation;
     public YourAddress yourAddress;
     public WomenPage womenPage;
     public Shipping shipping;
@@ -49,7 +50,8 @@ public class BaseTest extends DriverFactory {
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
         contactUs = PageFactory.initElements(driver, ContactUs.class);
         newsLetterPage = PageFactory.initElements(driver, NewsLetterPage.class);
-        yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
+        ContactUs = PageFactory.initElements(driver, ContactUs.class);
+        yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInformation.class);
         yourAddress = PageFactory.initElements(driver,YourAddress.class);
         womenPage = PageFactory.initElements(driver, WomenPage.class);
         shipping =PageFactory.initElements(driver,Shipping.class);
