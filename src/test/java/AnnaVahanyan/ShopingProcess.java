@@ -36,7 +36,11 @@ public class ShopingProcess {
         ProceedButton2.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"email_create\"]")));
         WebElement EmailButton = driver.findElement(By.xpath("//*[@id=\"email_create\"]"));
+<<<<<<< HEAD
         EmailButton.sendKeys("rob.n07@mail.ru");
+=======
+        EmailButton.sendKeys("rob.07@mail.ru");
+>>>>>>> 4c8bfdaf5d9972d73690dfc003632309ac841f17
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"SubmitCreate\"]")));
         WebElement CreatAcountButton = driver.findElement(By.xpath("//*[@id=\"SubmitCreate\"]"));
         CreatAcountButton.click();

@@ -1,3 +1,6 @@
+
+import io.qameta.allure.*;
+
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -5,6 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -13,7 +17,15 @@ public class SignInTest extends BaseTest {
 
     SoftAssertions softAssertions =new SoftAssertions();
 
+
     @Test
+
+    @Test()
+    @Severity(SeverityLevel.MINOR)
+    @Epic("SignIn Page: SignIn Page Title Test")
+    @Feature("Title Test")
+    @Description("Validate SignIn Page Title")
+
     public void titleTest() {
         signUpSignIn.clickButtonBasePageSignIn();
         String actualTitle = signUpSignIn.getPageTitle();
@@ -22,6 +34,12 @@ public class SignInTest extends BaseTest {
     }
 
     @Test
+
+    @Severity(SeverityLevel.MINOR)
+    @Epic("SignIn Page: SignIn Page Header Test")
+    @Feature("Header Test")
+    @Description("Validate SignIn Page Header")
+
     public void pageHeaderTest() {
         signUpSignIn.clickButtonBasePageSignIn();
         String actualText = signUpSignIn.getPageHeading();
@@ -30,6 +48,12 @@ public class SignInTest extends BaseTest {
     }
 
     @Test
+
+    @Severity(SeverityLevel.MINOR)
+    @Epic("SignIn Page: SignIn Page Create Account Header Test")
+    @Feature("Create Account header Test")
+    @Description("Validate SignIn Page Header of Create Account")
+
     public void createAccountHeaderTest() {
         signUpSignIn.clickButtonBasePageSignIn();
         String actualText = signUpSignIn.getCreateAccountHeading();
@@ -40,6 +64,12 @@ public class SignInTest extends BaseTest {
     }
 
     @Test
+
+    @Severity(SeverityLevel.MINOR)
+    @Epic("SignIn Page: SignIn Page SignIn Header Test")
+    @Feature("SignIn Header Test")
+    @Description("Validate SignIn Page Header of SignIn")
+
     public void signInHeaderTest() {
         signUpSignIn.clickButtonBasePageSignIn();
         String actualText = signUpSignIn.getSignInHeading();
@@ -48,7 +78,15 @@ public class SignInTest extends BaseTest {
     }
 
     @Test
+
     public void createAnAccountTest() {
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("SignIn Page: SignIn Page Create Account Positive Test")
+    @Feature("Create Account Test")
+    @Description("Validate SignIn Page Functionality of Create Account")
+    public void createAnAccountPositiveTest() {
+
         signUpSignIn.clickButtonBasePageSignIn();
         signUpSignIn.sendTextEmailCreate(super.generateRandomEmail());
         signUpSignIn.clickButtonCreateAnAccount();
@@ -57,8 +95,32 @@ public class SignInTest extends BaseTest {
         Assertions.assertEquals(expectedText, actualText, "Expected header of the page is <<YOUR PERSONAL INFORMATION>> ");
     }
 
+
     @Test
     public void SignInTest() {
+=======
+    @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("SignIn Page: SignIn Page Create Account With Repeating Email")
+    @Feature("Create Account Test Negative test")
+    @Description("Validate SignIn Page Functionality of Create Account With Repeating Email")
+    public void createAnAccountRepeatEmailTest() {
+        signUpSignIn.clickButtonBasePageSignIn();
+        signUpSignIn.sendTextEmailCreate("TestEmailHelloWorld@gmail.com");
+        signUpSignIn.clickButtonCreateAnAccount();
+        String actualText = signUpSignIn.getRepeatEmailErrorText();
+        String expectedText = "An account using this email address has already been registered. Please enter a valid password or request a new one.";
+        Assertions.assertEquals(expectedText, actualText, "Expected header of the page is <<YOUR PERSONAL INFORMATION>> ");
+    }
+
+
+    @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("SignIn Page: SignIn Page Create Account With Negative Inputs")
+    @Feature("Create Account Test Negative test")
+    @Description("Validate SignIn Page Functionality of Create Account With Invalid Email")
+    public void signInNegativeTest() {
+>>>>>>> 4c8bfdaf5d9972d73690dfc003632309ac841f17
         signUpSignIn.clickButtonBasePageSignIn();
         signUpSignIn.sendTextEmail("123456");
         signUpSignIn.sendTextPassword("123456");
@@ -70,8 +132,31 @@ public class SignInTest extends BaseTest {
         }
     }
 
+<<<<<<< HEAD
 
     @Test
+=======
+    @Test
+    @Severity(SeverityLevel.BLOCKER)
+    @Epic("SignIn Page: SignIn Functionality")
+    @Feature("SignIn Test")
+    @Description("Validate SignIn Functionality with positive values")
+    public void signInPositiveTest() {
+        signUpSignIn.clickButtonBasePageSignIn();
+        signUpSignIn.sendTextEmail("TestEmailHelloWorld@gmail.com");
+        signUpSignIn.sendTextPassword("123456");
+        signUpSignIn.clickButtonSignIn();
+        Assertions.assertEquals("My account - My Store", signUpSignIn.getPageTitle());
+    }
+
+
+
+    @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("SignIn Page: All Links")
+    @Feature("Link Test")
+    @Description("Validate All Links Connection in SignIn Page")
+>>>>>>> 4c8bfdaf5d9972d73690dfc003632309ac841f17
     public void signInPageLinksTest() throws IOException {
         signUpSignIn.clickButtonBasePageSignIn();
         for (WebElement link:signUpSignIn.links){
@@ -83,6 +168,10 @@ public class SignInTest extends BaseTest {
                 try {
                     URL Url = new URL(url);
                     HttpURLConnection connection = (HttpURLConnection) Url.openConnection();
+<<<<<<< HEAD
+=======
+                    connection.setConnectTimeout(2000);
+>>>>>>> 4c8bfdaf5d9972d73690dfc003632309ac841f17
                     connection.connect();
                     int cod = connection.getResponseCode();
                     if (cod>=400){
@@ -98,5 +187,12 @@ public class SignInTest extends BaseTest {
                 }
             }
         }
+<<<<<<< HEAD
     }
+=======
+        softAssertions.assertAll();
+    }
+
+
+>>>>>>> 4c8bfdaf5d9972d73690dfc003632309ac841f17
 }

@@ -27,7 +27,10 @@ public class ProductSelectionPage extends BasePage {
     }
 
     public void clickOnFiorstItem(){
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4c8bfdaf5d9972d73690dfc003632309ac841f17
         basePage.clickOnelement(firstItem);
     }
 

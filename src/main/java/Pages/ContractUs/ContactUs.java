@@ -9,7 +9,11 @@ public class ContactUs extends BasePage {
         private final BasePage basePage;
 
 
+<<<<<<< HEAD
         public ContactUs(WebDriver driver) {
+=======
+        public  ContactUs(WebDriver driver) {
+>>>>>>> 4c8bfdaf5d9972d73690dfc003632309ac841f17
                 super(driver);
                 basePage = new BasePage(driver);
         }

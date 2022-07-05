@@ -29,6 +29,13 @@ public class SignUpSignIn extends BasePage {
     @CacheLookup
     WebElement errorText;
 
+
+    @FindBy(xpath = "//*[@id=\"create_account_error\"]/ol/li")
+    @CacheLookup
+    WebElement repeatEmailErrorText;
+
+
+
     @FindBy(tagName = "a")
     @CacheLookup
     public List<WebElement> links;
@@ -91,9 +98,19 @@ public class SignUpSignIn extends BasePage {
 
 
 
+
     public String getPageTitle(){
         String title = getDriver().getTitle();
         return title;
+
+    public String getRepeatEmailErrorText(){
+        basePage.waitElementToBeVisible(repeatEmailErrorText);
+        return repeatEmailErrorText.getText();
+    }
+
+    public String getPageTitle(){
+        return getDriver().getTitle();
+
     }
 
     public String getPageHeading(){

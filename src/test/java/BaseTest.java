@@ -1,7 +1,19 @@
+<<<<<<< HEAD
 import Pages.SignUpSignIn.SignUpSignIn;
 import Pages.homePage.ProductSelectionPage;
 import Pages.productDetails.ProductDetails;
 import Pages.yourAddress.YourAddress;
+=======
+<<<<<<< HEAD
+import Pages.Newsletter.NewsLetterPage;
+=======
+import Pages.ContractUs.ContactUs;
+>>>>>>> ef0a22bdc4e9c2ed11f251dc875cab4c4733eaa9
+import Pages.SignUpSignIn.SignUpSignIn;
+import Pages.homePage.ProductSelectionPage;
+import Pages.productDetails.ProductDetails;
+import Pages.yourPersonalInformation.YourPersonalInfgormation;
+>>>>>>> 4c8bfdaf5d9972d73690dfc003632309ac841f17
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,14 +24,29 @@ public class BaseTest extends DriverFactory {
     //region <Page Class Instance Declaration>
     public ProductSelectionPage homePageActions;
     public ProductDetails productDetails;
+<<<<<<< HEAD
     //endregion
     public SignUpSignIn signUpSignIn;
     public YourAddress yourAddress;
+=======
+    public SignUpSignIn signUpSignIn;
+    public NewsLetterPage newsLetterPage;
+    public Pages.ContractUs.ContactUs ContactUs;
+    public YourPersonalInfgormation yourPersonalInformation;
+    //endregion
+
+
+
+
+>>>>>>> 4c8bfdaf5d9972d73690dfc003632309ac841f17
 
     public static final String ENVIRONMENT_URL = "http://automationpractice.com/index.php";
     private final boolean REMOTE = false;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4c8bfdaf5d9972d73690dfc003632309ac841f17
     public BaseTest() {
     }
 
@@ -36,7 +63,13 @@ public class BaseTest extends DriverFactory {
         homePageActions = PageFactory.initElements(driver, ProductSelectionPage.class);
         productDetails = PageFactory.initElements(driver, ProductDetails.class);
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
+<<<<<<< HEAD
         yourAddress = PageFactory.initElements(driver, YourAddress.class);
+=======
+        newsLetterPage = PageFactory.initElements(driver, NewsLetterPage.class);
+        ContactUs = PageFactory.initElements(driver, ContactUs.class);
+        yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
+>>>>>>> 4c8bfdaf5d9972d73690dfc003632309ac841f17
         //endregion
     }
 

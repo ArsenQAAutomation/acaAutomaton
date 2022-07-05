@@ -120,7 +120,8 @@ public class YourAddress {
             basePage.waitElementToBeVisible(alias);
             alias.sendKeys(text);
         }
-        public void clickOnRegisterButton(String text){
+
+        public void clickOnRegisterButton(String text) {
             basePage.waitElementTobeClickable(registerButton);
             registerButton.click();
         }
