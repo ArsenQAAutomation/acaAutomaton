@@ -4,16 +4,18 @@ import org.junit.jupiter.api.Test;
 class YourPersonalInformationTest  extends BaseTest{
 
     @Test
- public void GorsTestMethod(){
+ public void GorsTestMethod() {
         signUpSignIn.clickButtonBasePageSignIn();
         signUpSignIn.sendTextEmail("sfdhhg@gmail.com");
+        signUpSignIn.sendTextPassword("12334");
+        signUpSignIn.clickButtonSignIn();
     }
     @Test
   public void MyTestMethod()
 
   {
 
-      yourPersonalInformation.SendEmail(super.generateRandomEmail());
+      yourPersonalInformation.SendEmail("abcd@gmail.com");
       yourPersonalInformation.Submit();
       yourPersonalInformation.Gender();
       yourPersonalInformation.FirstName("Anna");
@@ -25,6 +27,7 @@ class YourPersonalInformationTest  extends BaseTest{
       yourPersonalInformation.Year("2022");
       yourPersonalInformation.LastAction();
   }
+
 
 
 }
