@@ -2,6 +2,7 @@
 import Pages.Newsletter.NewsLetterPage;
 import Pages.ContractUs.ContactUs;
 import Pages.SignUpSignIn.SignUpSignIn;
+import Pages.Women.WomenPage;
 import Pages.homePage.ProductSelectionPage;
 //import Pages.productDetails.ProductDetails;
 import Pages.yourAddress.YourAddress;
@@ -21,6 +22,7 @@ public class BaseTest extends DriverFactory {
     //public Pages.ContractUs.ContactUs ContactUs;
     public YourPersonalInfgormation yourPersonalInformation;
     public YourAddress yourAddress;
+    public WomenPage womenPage;
     //endregion
 
 
@@ -50,6 +52,7 @@ public class BaseTest extends DriverFactory {
         //ContactUs = PageFactory.initElements(driver, ContactUs.class);
         yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
         yourAddress = PageFactory.initElements(driver,YourAddress.class);
+        womenPage = PageFactory.initElements(driver, WomenPage.class);
         //endregion
     }
 

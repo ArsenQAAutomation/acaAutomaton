@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class womenPage extends BasePage {
+public class WomenPage extends BasePage {
     private final BasePage basePage;
 
-    public womenPage(WebDriver driver) {
+    public WomenPage(WebDriver driver) {
         super(driver);
         basePage = new BasePage(driver);
 
