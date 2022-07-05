@@ -17,9 +17,6 @@ public class ContactUs extends BasePage {
         @FindBy(xpath = "//*[@id=\"contact-link\"]/a")
         public WebElement title;
 
-        @FindBy(id = "center_column")
-        public WebElement customerserivce;
-
         @FindBy(id = "id_contact")
         public WebElement formchoose;
 
@@ -35,15 +32,13 @@ public class ContactUs extends BasePage {
         @FindBy(xpath = "//*[@id=\"message\"]")
         public WebElement message;
 
+        @FindBy(xpath = "//*[@id=\"submitMessage\"]")
+        public WebElement send;
+
 
     public void title() {
         basePage.waitElementTobeClickable(title);
         basePage.clickOnelement(title);
-    }
-
-    public void CustomerService() {
-        basePage.waitElementTobeClickable(customerserivce);
-        basePage.clickOnelement(customerserivce);
     }
 
     public void SubjectHeading() {
@@ -62,6 +57,9 @@ public class ContactUs extends BasePage {
     }
 
     public void AttachFile() {
+        basePage.scrollToElementJS(fileupload);
+        waitElementToBeVisible(fileupload);
+        waitElementTobeClickable(fileupload);
         basePage.waitElementTobeClickable(fileupload);
         basePage.clickOnelement(fileupload);
     }
@@ -70,5 +68,13 @@ public class ContactUs extends BasePage {
         basePage.waitElementTobeClickable(message);
         basePage.clickOnelement(message);
         message.sendKeys(Fill);
+    }
+
+    public void Send(){
+        basePage.scrollToElementJS(send);
+        waitElementToBeVisible(send);
+        waitElementTobeClickable(send);
+        basePage.waitElementTobeClickable(send);
+        basePage.clickOnelement(send);
     }
 }

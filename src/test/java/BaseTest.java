@@ -20,14 +20,10 @@ public class BaseTest extends DriverFactory {
     //public ProductDetails productDetails;
     public SignUpSignIn signUpSignIn;
     public NewsLetterPage newsLetterPage;
-    //public Pages.ContractUs.ContactUs ContactUs;
     public YourPersonalInfgormation yourPersonalInformation;
     public YourAddress yourAddress;
     public WomenPage womenPage;
     //endregion
-
-
-
 
 
 
@@ -36,7 +32,6 @@ public class BaseTest extends DriverFactory {
 
     public BaseTest() {
     }
-
 
 
     @BeforeEach
