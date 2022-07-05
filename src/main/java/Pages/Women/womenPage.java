@@ -32,7 +32,7 @@ import org.openqa.selenium.support.FindBy;
         @FindBy(id = "layered_id_attribute_group_3")
         public WebElement sizeL;
 
-              
+
         public void womenTitle(){
                 basePage.waitElementTobeClickable(womenTitle);
                 basePage.clickOnelement(womenTitle);
@@ -42,7 +42,7 @@ import org.openqa.selenium.support.FindBy;
                 basePage.waitElementTobeClickable(topsCategory);
                 basePage.clickOnelement(topsCategory);
                 }
-        
+
         public void dressesCategory(){
                 basePage.waitElementTobeClickable(dressesCategory);
                 basePage.clickOnelement(dressesCategory);
@@ -56,9 +56,4 @@ import org.openqa.selenium.support.FindBy;
         public void sizeM(){
                 basePage.waitElementTobeClickable(sizeM);
                 basePage.clickOnelement(sizeM);
-                }
-
-        public void sizeL(){
-                basePage.waitElementTobeClickable(sizeL);
-                basePage.clickOnelement(sizeL);
                 }}

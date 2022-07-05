@@ -5,7 +5,7 @@ import Pages.SignUpSignIn.SignUpSignIn;
 import Pages.homePage.ProductSelectionPage;
 import Pages.productDetails.ProductDetails;
 import Pages.yourAddress.YourAddress;
-import Pages.yourPersonalInformation.YourPersonalInfgormation;
+import Pages.yourPersonalInformation.YourPersonalInformation;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +19,7 @@ public class BaseTest extends DriverFactory {
     public SignUpSignIn signUpSignIn;
     public NewsLetterPage newsLetterPage;
     public Pages.ContractUs.ContactUs ContactUs;
-    public YourPersonalInfgormation yourPersonalInformation;
+    public YourPersonalInformation yourPersonalInformation;
     public YourAddress yourAddress;
     //endregion
 
@@ -48,7 +48,7 @@ public class BaseTest extends DriverFactory {
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
         newsLetterPage = PageFactory.initElements(driver, NewsLetterPage.class);
         ContactUs = PageFactory.initElements(driver, ContactUs.class);
-        yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
+        yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInformation.class);
         yourAddress = PageFactory.initElements(driver,YourAddress.class);
         //endregion
     }
