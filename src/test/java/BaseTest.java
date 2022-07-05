@@ -1,9 +1,11 @@
 
 import Pages.Newsletter.NewsLetterPage;
 import Pages.ContractUs.ContactUs;
+import Pages.Shipping.Shipping;
 import Pages.SignUpSignIn.SignUpSignIn;
+import Pages.Women.WomenPage;
 import Pages.homePage.ProductSelectionPage;
-import Pages.productDetails.ProductDetails;
+//import Pages.productDetails.ProductDetails;
 import Pages.yourAddress.YourAddress;
 import Pages.yourPersonalInformation.YourPersonalInformation;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -15,15 +17,16 @@ import utils.DriverFactory;
 public class BaseTest extends DriverFactory {
     //region <Page Class Instance Declaration>
     public ProductSelectionPage homePageActions;
-    public ProductDetails productDetails;
+    public ContactUs contactUs;
+    //public ProductDetails productDetails;
     public SignUpSignIn signUpSignIn;
     public NewsLetterPage newsLetterPage;
     public Pages.ContractUs.ContactUs ContactUs;
     public YourPersonalInformation yourPersonalInformation;
     public YourAddress yourAddress;
+    public WomenPage womenPage;
+    public Shipping shipping;
     //endregion
-
-
 
 
 
@@ -32,7 +35,6 @@ public class BaseTest extends DriverFactory {
 
     public BaseTest() {
     }
-
 
 
     @BeforeEach
@@ -44,12 +46,15 @@ public class BaseTest extends DriverFactory {
         }
         //region <Page Class Instance Initialization >
         homePageActions = PageFactory.initElements(driver, ProductSelectionPage.class);
-        productDetails = PageFactory.initElements(driver, ProductDetails.class);
+        //productDetails = PageFactory.initElements(driver, ProductDetails.class);
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
+        contactUs = PageFactory.initElements(driver, ContactUs.class);
         newsLetterPage = PageFactory.initElements(driver, NewsLetterPage.class);
         ContactUs = PageFactory.initElements(driver, ContactUs.class);
         yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInformation.class);
         yourAddress = PageFactory.initElements(driver,YourAddress.class);
+        womenPage = PageFactory.initElements(driver, WomenPage.class);
+        shipping =PageFactory.initElements(driver,Shipping.class);
         //endregion
     }
 
