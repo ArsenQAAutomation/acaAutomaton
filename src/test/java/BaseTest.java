@@ -1,6 +1,7 @@
 
 import Pages.Newsletter.NewsLetterPage;
 import Pages.ContractUs.ContactUs;
+import Pages.Shipping.Shipping;
 import Pages.SignUpSignIn.SignUpSignIn;
 import Pages.Women.WomenPage;
 import Pages.homePage.ProductSelectionPage;
@@ -16,6 +17,7 @@ import utils.DriverFactory;
 public class BaseTest extends DriverFactory {
     //region <Page Class Instance Declaration>
     public ProductSelectionPage homePageActions;
+    public ContactUs contactUs;
     //public ProductDetails productDetails;
     public SignUpSignIn signUpSignIn;
     public NewsLetterPage newsLetterPage;
@@ -23,7 +25,9 @@ public class BaseTest extends DriverFactory {
     public YourPersonalInfgormation yourPersonalInformation;
     public YourAddress yourAddress;
     public WomenPage womenPage;
+    public Shipping shipping;
     //endregion
+
 
 
 
@@ -48,11 +52,12 @@ public class BaseTest extends DriverFactory {
         homePageActions = PageFactory.initElements(driver, ProductSelectionPage.class);
         //productDetails = PageFactory.initElements(driver, ProductDetails.class);
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
+        contactUs = PageFactory.initElements(driver, ContactUs.class);
         newsLetterPage = PageFactory.initElements(driver, NewsLetterPage.class);
-        //ContactUs = PageFactory.initElements(driver, ContactUs.class);
         yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
         yourAddress = PageFactory.initElements(driver,YourAddress.class);
         womenPage = PageFactory.initElements(driver, WomenPage.class);
+        shipping =PageFactory.initElements(driver,Shipping.class);
         //endregion
     }
 
