@@ -16,17 +16,23 @@ public class ContactUs extends BasePage {
 
         @FindBy(xpath = "//*[@id=\"contact-link\"]/a")
         public WebElement title;
+
         @FindBy(id = "center_column")
         public WebElement customerserivce;
+
         @FindBy(id = "id_contact")
         public WebElement formchoose;
-        @FindBy(className = "form-control grey validate")
+
+        @FindBy(xpath ="//*[@id=\"email\"]")
         public WebElement email;
-        @FindBy(className = "form-control grey")
+
+        @FindBy(xpath = "//*[@id=\"id_order\"]")
         public WebElement ordereference;
-        @FindBy(className = "uploader hover")
+
+        @FindBy(xpath = "//*[@id=\"uniform-fileUpload\"]")
         public WebElement fileupload;
-        @FindBy(className = "form-control")
+
+        @FindBy(xpath = "//*[@id=\"message\"]")
         public WebElement message;
 
         public void title(){
