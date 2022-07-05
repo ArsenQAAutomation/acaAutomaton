@@ -17,6 +17,7 @@ import utils.DriverFactory;
 public class BaseTest extends DriverFactory {
     //region <Page Class Instance Declaration>
     public ProductSelectionPage homePageActions;
+    public ContactUs contactUs;
     //public ProductDetails productDetails;
     public SignUpSignIn signUpSignIn;
     public NewsLetterPage newsLetterPage;
@@ -26,6 +27,7 @@ public class BaseTest extends DriverFactory {
     public WomenPage womenPage;
     public Shipping shipping;
     //endregion
+
 
 
 
@@ -50,8 +52,8 @@ public class BaseTest extends DriverFactory {
         homePageActions = PageFactory.initElements(driver, ProductSelectionPage.class);
         //productDetails = PageFactory.initElements(driver, ProductDetails.class);
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
+        contactUs = PageFactory.initElements(driver, ContactUs.class);
         newsLetterPage = PageFactory.initElements(driver, NewsLetterPage.class);
-        //ContactUs = PageFactory.initElements(driver, ContactUs.class);
         yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
         yourAddress = PageFactory.initElements(driver,YourAddress.class);
         womenPage = PageFactory.initElements(driver, WomenPage.class);
