@@ -1,8 +1,6 @@
 
 import Pages.Newsletter.NewsLetterPage;
-
 import Pages.ContractUs.ContactUs;
-
 import Pages.SignUpSignIn.SignUpSignIn;
 import Pages.homePage.ProductSelectionPage;
 import Pages.productDetails.ProductDetails;
