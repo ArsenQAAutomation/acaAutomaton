@@ -1,11 +1,12 @@
-<<<<<<< HEAD
+
 import Pages.Newsletter.NewsLetterPage;
-=======
+
 import Pages.ContractUs.ContactUs;
->>>>>>> ef0a22bdc4e9c2ed11f251dc875cab4c4733eaa9
+
 import Pages.SignUpSignIn.SignUpSignIn;
 import Pages.homePage.ProductSelectionPage;
 import Pages.productDetails.ProductDetails;
+import Pages.yourAddress.YourAddress;
 import Pages.yourPersonalInformation.YourPersonalInfgormation;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.AfterEach;
@@ -21,6 +22,7 @@ public class BaseTest extends DriverFactory {
     public NewsLetterPage newsLetterPage;
     public Pages.ContractUs.ContactUs ContactUs;
     public YourPersonalInfgormation yourPersonalInformation;
+    public YourAddress yourAddress;
     //endregion
 
 
@@ -49,6 +51,7 @@ public class BaseTest extends DriverFactory {
         newsLetterPage = PageFactory.initElements(driver, NewsLetterPage.class);
         ContactUs = PageFactory.initElements(driver, ContactUs.class);
         yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
+        yourAddress = PageFactory.initElements(driver,YourAddress.class);
         //endregion
     }
 
