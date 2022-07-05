@@ -1,6 +1,7 @@
 
 import Pages.Newsletter.NewsLetterPage;
 import Pages.ContractUs.ContactUs;
+import Pages.Shipping.Shipping;
 import Pages.SignUpSignIn.SignUpSignIn;
 import Pages.Women.WomenPage;
 import Pages.homePage.ProductSelectionPage;
@@ -23,6 +24,7 @@ public class BaseTest extends DriverFactory {
     public YourPersonalInfgormation yourPersonalInformation;
     public YourAddress yourAddress;
     public WomenPage womenPage;
+    public Shipping shipping;
     //endregion
 
 
@@ -53,6 +55,7 @@ public class BaseTest extends DriverFactory {
         yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
         yourAddress = PageFactory.initElements(driver,YourAddress.class);
         womenPage = PageFactory.initElements(driver, WomenPage.class);
+        shipping =PageFactory.initElements(driver,Shipping.class);
         //endregion
     }
 
