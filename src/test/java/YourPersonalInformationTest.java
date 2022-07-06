@@ -6,17 +6,16 @@ class YourPersonalInformationTest  extends BaseTest{
     @Test
  public void GorsTestMethod() {
         signUpSignIn.clickButtonBasePageSignIn();
-        signUpSignIn.sendTextEmail("sfdhhg@gmail.com");
-        signUpSignIn.sendTextPassword("12334");
-        signUpSignIn.clickButtonSignIn();
+        signUpSignIn.sendTextEmailCreate("sfdhhg@gmail.com");
+        signUpSignIn.clickButtonCreateAnAccount();
     }
     @Test
   public void MyTestMethod()
 
   {
 
-      yourPersonalInformation.SendEmail("abcd@gmail.com");
-      yourPersonalInformation.Submit();
+    /* yourPersonalInformation.SendEmail("abcd@gmail.com");
+      yourPersonalInformation.Submit();*/
       yourPersonalInformation.Gender();
       yourPersonalInformation.FirstName("Anna");
       yourPersonalInformation.LastName("Vahanyan");

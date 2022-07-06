@@ -13,13 +13,17 @@ public class YourPersonalInformation extends BasePage {
         super(driver);
         basePage = new BasePage(driver);
     }
+   /* @FindBy(xpath =//*[text()='My personal information'] );
+            @CacheLookup
+            private WebElement  MyPersonalInformationButton;*/
 
-    @FindBy(xpath = "//*[@id=\"email_create\"]")
+
+   /* @FindBy(xpath = "//*[@id=\"email_create\"]")
     @CacheLookup
     private WebElement EmailButton;
     @FindBy(xpath = "//*[@id=\"SubmitCreate\"]")
     @CacheLookup
-    private WebElement SubmitButton;
+    private WebElement SubmitButton;*/
     @FindBy(id = "id_gender2")
     @CacheLookup
     private WebElement GenderButton;
@@ -48,8 +52,13 @@ public class YourPersonalInformation extends BasePage {
     @CacheLookup
     private WebElement OptinButon;
 
+  /* public void MyPersonalInformationButtonClick(){
+       basePage.waitElementTobeClickable(MyPersonalInformationButton);
+       basePage.clickOnelement(MyPersonalInformationButton);
+   }
+   */
     //**Searching and fill the email box
-    public void SendEmail(String text) {
+    /*public void SendEmail(String text) {
         basePage.waitElementToBeVisible(EmailButton);
         EmailButton.sendKeys(text);
 
@@ -60,7 +69,7 @@ public class YourPersonalInformation extends BasePage {
     public void Submit() {
         basePage.waitElementTobeClickable(SubmitButton);
         basePage.clickOnelement(SubmitButton);
-    }
+    }*/
 
     //********Search and click on gender button
     public void Gender() {
