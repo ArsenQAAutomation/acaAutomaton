@@ -3,16 +3,14 @@ import org.junit.jupiter.api.Test;
 
 class YourPersonalInformationTest  extends BaseTest{
 
-    @Test
- public void GorsTestMethod() {
-        signUpSignIn.clickButtonBasePageSignIn();
-        signUpSignIn.sendTextEmailCreate("sfdhhg@gmail.com");
-        signUpSignIn.clickButtonCreateAnAccount();
-    }
+
     @Test
   public void MyTestMethod()
 
   {
+      signUpSignIn.clickButtonBasePageSignIn();
+      signUpSignIn.sendTextEmailCreate("sfdhhg@gmail.com");
+      signUpSignIn.clickButtonCreateAnAccount();
 
     /* yourPersonalInformation.SendEmail("abcd@gmail.com");
       yourPersonalInformation.Submit();*/
