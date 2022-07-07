@@ -9,9 +9,11 @@ public class BrowserTest extends BaseTest {
     @Test
     void testGoogleAvailable() throws InterruptedException {
 
-        homePageActions.clickOnLogo();
+        //homePageActions.clickOnLogo();
+        //Thread.sleep(300);
+        String st;
         newsLetterPage.addEmailTextToEmailInoutFiled("kuku@mailinator.com");
-        Assert.assertEquals(newsLetterPage.getTextFromNewsletterLabel(), "My Store");
+        Assert.assertEquals(newsLetterPage.getTextFromNewsletterLabel(), "Newsletter");
         newsLetterPage.clickOnSubmitNewsletterButton();
     }
 
