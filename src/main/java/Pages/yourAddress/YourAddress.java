@@ -5,11 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class YourAddress {
-    public class yourAddress extends BasePage {
+public class YourAddress extends BasePage {
         private final BasePage basePage;
 
-        public yourAddress(WebDriver driver) {
+        public YourAddress(WebDriver driver) {
             super(driver);
             basePage = new BasePage(driver);
         }
@@ -96,7 +95,7 @@ public class YourAddress {
             postCode.sendKeys(text);
         }
 
-        public void SelectCountry(String text) {
+        public void selectCountry(String text) {
             basePage.waitElementToBeVisible(selectCountry);
             selectCountry.sendKeys(text);
         }
@@ -125,4 +124,3 @@ public class YourAddress {
             registerButton.click();
         }
     }
-}

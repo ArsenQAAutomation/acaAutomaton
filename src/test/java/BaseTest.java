@@ -17,12 +17,20 @@ import utils.DriverFactory;
 public class BaseTest extends DriverFactory {
     //region <Page Class Instance Declaration>
     public ProductSelectionPage homePageActions;
+<<<<<<< HEAD
+    //public ProductDetails productDetails;
+    public SignUpSignIn signUpSignIn;
+    public NewsLetterPage newsLetterPage;
+    //public Pages.ContractUs.ContactUs ContactUs;
+    public YourPersonalInfgormation yourPersonalInformation;
+=======
     public ContactUs contactUs;
     //public ProductDetails productDetails;
     public SignUpSignIn signUpSignIn;
     public NewsLetterPage newsLetterPage;
     public Pages.ContractUs.ContactUs ContactUs;
     public YourPersonalInformation yourPersonalInformation;
+>>>>>>> 14159bc1cbb15eecdff84f4a3c670de18878cb6c
     public YourAddress yourAddress;
     public WomenPage womenPage;
     public Shipping shipping;
@@ -46,12 +54,21 @@ public class BaseTest extends DriverFactory {
         }
         //region <Page Class Instance Initialization >
         homePageActions = PageFactory.initElements(driver, ProductSelectionPage.class);
+<<<<<<< HEAD
+       // productDetails = PageFactory.initElements(driver, ProductDetails.class);
+=======
         //productDetails = PageFactory.initElements(driver, ProductDetails.class);
+>>>>>>> 14159bc1cbb15eecdff84f4a3c670de18878cb6c
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
         contactUs = PageFactory.initElements(driver, ContactUs.class);
         newsLetterPage = PageFactory.initElements(driver, NewsLetterPage.class);
+<<<<<<< HEAD
+        //ContactUs = PageFactory.initElements(driver, ContactUs.class);
+        yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
+=======
         ContactUs = PageFactory.initElements(driver, ContactUs.class);
         yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInformation.class);
+>>>>>>> 14159bc1cbb15eecdff84f4a3c670de18878cb6c
         yourAddress = PageFactory.initElements(driver,YourAddress.class);
         womenPage = PageFactory.initElements(driver, WomenPage.class);
         shipping =PageFactory.initElements(driver,Shipping.class);
@@ -61,11 +78,13 @@ public class BaseTest extends DriverFactory {
     @AfterEach
     public void afterMethod() {
         try {
-            this.driver.quit();
+           // this.driver.quit();
         } catch (Exception exception) {
 
         }
     }
+
+
     public String generateRandomEmail(){
         String randomEmail;
         String generatedString = RandomStringUtils.randomAlphanumeric(10);

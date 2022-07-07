@@ -1,9 +1,12 @@
 package Pages.women;
 
 import Pages.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WomenPage extends BasePage {
     private final BasePage basePage;
@@ -25,21 +28,35 @@ public class WomenPage extends BasePage {
     @FindBy(id = "layered_id_attribute_group_2")
     public WebElement sizeM;
 
-    public void womenTitle() {
+    @FindBy(id = "Add to cart")
+    public WebElement addToCart;
+
+    @FindBy(xpath = "//*[@class = layer_cart_product_info]")
+    public WebElement cartAddedProductInfo;
+
+    public String getTextFromCartAddedProductInfo() {
+        return  cartAddedProductInfo.getText().toString();
+    }
+
+    public void clickOnWomenTitleMenuButton() {
         basePage.waitElementTobeClickable(womenTitle);
         basePage.clickOnelement(womenTitle);
     }
 
-    public void DressCheckBox() {
+    public void clickOnDressCheckBox() {
         basePage.clickOnelement(dressCheckBox);
     }
 
-    public void sizeS() {
+    public void clickOnSizeSCheckbox() {
         basePage.clickOnelement(sizeS);
     }
 
-    public void sizeM() {
+    public void clickOnSizeMCheckbox() {
         basePage.waitElementTobeClickable(sizeM);
         basePage.clickOnelement(sizeM);
+    }
+    public void clickOnAddToCartButton() {
+        basePage.waitElementToBeVisible(addToCart);
+        basePage.clickOnelement(addToCart);
     }
 }
