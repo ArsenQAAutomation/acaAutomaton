@@ -30,6 +30,13 @@ public class WomenPage extends BasePage {
 
     @FindBy(id = "Add to cart")
     public WebElement addToCart;
+/*
+    @FindBy(xpath = "//*[@class = layer_cart_product_info]"
+    public WebElement cartAddedProductInfo;
+
+    public String cartAddedProductInfo {
+        return  cartAddedProductInfo.getText().toString();
+    }*/
 
     public void womenTitle() {
         basePage.waitElementTobeClickable(womenTitle);
