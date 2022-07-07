@@ -7,7 +7,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
 public class YourPersonalInformation extends BasePage {
-    private BasePage basePage;
+    private final BasePage basePage;
 
     public YourPersonalInformation(WebDriver driver) {
         super(driver);
