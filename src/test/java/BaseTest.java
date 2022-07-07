@@ -3,11 +3,11 @@ import Pages.Newsletter.NewsLetterPage;
 import Pages.ContractUs.ContactUs;
 import Pages.Shipping.Shipping;
 import Pages.SignUpSignIn.SignUpSignIn;
-import Pages.Women.WomenPage;
 import Pages.homePage.ProductSelectionPage;
 //import Pages.productDetails.ProductDetails;
+import Pages.women.WomenPage;
 import Pages.yourAddress.YourAddress;
-import Pages.yourPersonalInformation.YourPersonalInfgormation;
+import Pages.yourPersonalInformation.YourPersonalInformation;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,11 +17,13 @@ import utils.DriverFactory;
 public class BaseTest extends DriverFactory {
     //region <Page Class Instance Declaration>
     public ProductSelectionPage homePageActions;
-    public ContactUs contactUs;
     //public ProductDetails productDetails;
     public SignUpSignIn signUpSignIn;
     public NewsLetterPage newsLetterPage;
-    public YourPersonalInfgormation yourPersonalInformation;
+    //public Pages.ContractUs.ContactUs ContactUs;
+    public ContactUs contactUs;
+    //public ProductDetails productDetails;
+    public YourPersonalInformation yourPersonalInformation;
     public YourAddress yourAddress;
     public WomenPage womenPage;
     public Shipping shipping;
@@ -45,11 +47,13 @@ public class BaseTest extends DriverFactory {
         }
         //region <Page Class Instance Initialization >
         homePageActions = PageFactory.initElements(driver, ProductSelectionPage.class);
+       // productDetails = PageFactory.initElements(driver, ProductDetails.class);
         //productDetails = PageFactory.initElements(driver, ProductDetails.class);
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
         contactUs = PageFactory.initElements(driver, ContactUs.class);
         newsLetterPage = PageFactory.initElements(driver, NewsLetterPage.class);
-        yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
+        //ContactUs = PageFactory.initElements(driver, ContactUs.class);
+        yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInformation.class);
         yourAddress = PageFactory.initElements(driver,YourAddress.class);
         womenPage = PageFactory.initElements(driver, WomenPage.class);
         shipping =PageFactory.initElements(driver,Shipping.class);
@@ -59,11 +63,13 @@ public class BaseTest extends DriverFactory {
     @AfterEach
     public void afterMethod() {
         try {
-            this.driver.quit();
+           // this.driver.quit();
         } catch (Exception exception) {
 
         }
     }
+
+
     public String generateRandomEmail(){
         String randomEmail;
         String generatedString = RandomStringUtils.randomAlphanumeric(10);

@@ -11,6 +11,7 @@ public class BrowserTest extends BaseTest {
 
         //homePageActions.clickOnLogo();
         //Thread.sleep(300);
+        String st;
         newsLetterPage.addEmailTextToEmailInoutFiled("kuku@mailinator.com");
         Assert.assertEquals(newsLetterPage.getTextFromNewsletterLabel(), "Newsletter");
         newsLetterPage.clickOnSubmitNewsletterButton();
