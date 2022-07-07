@@ -17,10 +17,10 @@ import utils.DriverFactory;
 public class BaseTest extends DriverFactory {
     //region <Page Class Instance Declaration>
     public ProductSelectionPage homePageActions;
-    public ProductDetails productDetails;
+    //public ProductDetails productDetails;
     public SignUpSignIn signUpSignIn;
     public NewsLetterPage newsLetterPage;
-    public Pages.ContractUs.ContactUs ContactUs;
+    //public Pages.ContractUs.ContactUs ContactUs;
     public YourPersonalInfgormation yourPersonalInformation;
     public YourAddress yourAddress;
     //endregion
@@ -46,10 +46,10 @@ public class BaseTest extends DriverFactory {
         }
         //region <Page Class Instance Initialization >
         homePageActions = PageFactory.initElements(driver, ProductSelectionPage.class);
-        productDetails = PageFactory.initElements(driver, ProductDetails.class);
+       // productDetails = PageFactory.initElements(driver, ProductDetails.class);
         signUpSignIn = PageFactory.initElements(driver,SignUpSignIn.class);
         newsLetterPage = PageFactory.initElements(driver, NewsLetterPage.class);
-        ContactUs = PageFactory.initElements(driver, ContactUs.class);
+        //ContactUs = PageFactory.initElements(driver, ContactUs.class);
         yourPersonalInformation=PageFactory.initElements(driver,YourPersonalInfgormation.class);
         yourAddress = PageFactory.initElements(driver,YourAddress.class);
         //endregion
@@ -58,11 +58,13 @@ public class BaseTest extends DriverFactory {
     @AfterEach
     public void afterMethod() {
         try {
-            this.driver.quit();
+           // this.driver.quit();
         } catch (Exception exception) {
 
         }
     }
+
+
     public String generateRandomEmail(){
         String randomEmail;
         String generatedString = RandomStringUtils.randomAlphanumeric(10);
