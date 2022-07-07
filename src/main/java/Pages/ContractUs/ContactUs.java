@@ -36,24 +36,29 @@ public class ContactUs extends BasePage {
         public WebElement send;
 
 
-    public void title() {
+    public void titlepage() {
         basePage.waitElementTobeClickable(title);
         basePage.clickOnelement(title);
     }
 
-    public void SubjectHeading() {
+    public String SubjectHeading() {
         basePage.waitElementTobeClickable(formchoose);
         basePage.clickOnelement(formchoose);
+        return formchoose.getText();
     }
 
-    public void Emailaddress() {
+    public void Emailaddress(String text) {
         basePage.waitElementTobeClickable(email);
-        basePage.clickOnelement(email);
+        email.sendKeys(text);
+    }
+    public String Emailtest() {
+        basePage.waitElementTobeClickable(email);
+        return email.getText();
     }
 
-    public void OrderReference() {
+    public void OrderReference(String text) {
         basePage.waitElementTobeClickable(ordereference);
-        basePage.clickOnelement(ordereference);
+        ordereference.sendKeys(text);
     }
 
     public void AttachFile() {
@@ -64,10 +69,10 @@ public class ContactUs extends BasePage {
         basePage.clickOnelement(fileupload);
     }
 
-    public void Message(String Fill) {
+    public void Message(String text) {
         basePage.waitElementTobeClickable(message);
         basePage.clickOnelement(message);
-        message.sendKeys(Fill);
+        message.sendKeys(text);
     }
 
     public void Send(){
@@ -76,5 +81,9 @@ public class ContactUs extends BasePage {
         waitElementTobeClickable(send);
         basePage.waitElementTobeClickable(send);
         basePage.clickOnelement(send);
+    }
+    public String getPageTitle(){
+
+        return getDriver().getTitle();
     }
 }

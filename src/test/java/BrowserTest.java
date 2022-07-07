@@ -16,5 +16,4 @@ public class BrowserTest extends BaseTest {
         newsLetterPage.clickOnSubmitNewsletterButton();
     }
 
-
 }
