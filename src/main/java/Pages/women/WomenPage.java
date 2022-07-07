@@ -30,32 +30,32 @@ public class WomenPage extends BasePage {
 
     @FindBy(id = "Add to cart")
     public WebElement addToCart;
-/*
-    @FindBy(xpath = "//*[@class = layer_cart_product_info]"
+
+    @FindBy(xpath = "//*[@class = layer_cart_product_info]")
     public WebElement cartAddedProductInfo;
 
-    public String cartAddedProductInfo {
+    public String getTextFromCartAddedProductInfo() {
         return  cartAddedProductInfo.getText().toString();
-    }*/
+    }
 
-    public void womenTitle() {
+    public void clickOnWomenTitleMenuButton() {
         basePage.waitElementTobeClickable(womenTitle);
         basePage.clickOnelement(womenTitle);
     }
 
-    public void DressCheckBox() {
+    public void clickOnDressCheckBox() {
         basePage.clickOnelement(dressCheckBox);
     }
 
-    public void sizeS() {
+    public void clickOnSizeSCheckbox() {
         basePage.clickOnelement(sizeS);
     }
 
-    public void sizeM() {
+    public void clickOnSizeMCheckbox() {
         basePage.waitElementTobeClickable(sizeM);
         basePage.clickOnelement(sizeM);
     }
-    public void setAddToCart() {
+    public void clickOnAddToCartButton() {
         basePage.waitElementToBeVisible(addToCart);
         basePage.clickOnelement(addToCart);
     }
