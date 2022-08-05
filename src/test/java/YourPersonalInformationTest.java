@@ -17,8 +17,8 @@ class YourPersonalInformationTest  extends BaseTest{
       yourPersonalInformation.Gender();
       yourPersonalInformation.FirstName("Anna");
       yourPersonalInformation.LastName("Vahanyan");
-      yourPersonalInformation.EmailButton2("erdfg@gmail.com");
-      yourPersonalInformation.Password("12345");
+     // yourPersonalInformation.EmailButton2("erdfg@gmail.com");
+      yourPersonalInformation.setPassword("12345");
       yourPersonalInformation.Day("10");
       yourPersonalInformation.Month("5");
       yourPersonalInformation.Year("2022");

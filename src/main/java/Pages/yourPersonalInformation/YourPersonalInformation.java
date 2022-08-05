@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class YourPersonalInformation extends BasePage {
     private final BasePage basePage;
@@ -96,15 +97,17 @@ public class YourPersonalInformation extends BasePage {
     }
 
     //*****Search and fill password in the accord field
-    public void Password(String text) {
+    public void setPassword(String text) {
         basePage.waitElementToBeVisible(PasswordButton);
         PasswordButton.sendKeys(text);
     }
 
     //*******Search and choose day of birth
     public void Day(String text) {
-        basePage.waitElementToBeVisible(DayButton);
-        DayButton.sendKeys(text);
+//        basePage.waitElementToBeVisible(DayButton);
+//        DayButton.sendKeys(text);
+        new Select(DayButton);
+        basePage.selectDropDownListItemByText("10");
     }
 
     //*********Search and choose month of birth
@@ -124,6 +127,7 @@ public class YourPersonalInformation extends BasePage {
         basePage.waitElementTobeClickable(OptinButon);
         OptinButon.click();
     }
+
 
 }
 
